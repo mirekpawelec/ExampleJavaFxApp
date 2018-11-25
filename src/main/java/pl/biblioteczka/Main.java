@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import static pl.biblioteczka.model.enums.FxmlPath.*;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
         loader.setResources(bundle);
-        loader.setLocation(this.getClass().getResource("/fxml/BorderPaneMain.fxml"));
+        loader.setLocation(this.getClass().getResource(BorderPaneMain.getPath()));
         BorderPane pane = loader.load();
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
