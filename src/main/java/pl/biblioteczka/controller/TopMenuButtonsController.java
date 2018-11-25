@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import static pl.biblioteczka.model.enums.FxmlPath.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,18 +31,18 @@ public class TopMenuButtonsController implements Initializable {
     }
 
     @FXML
-    public void openLibrary(ActionEvent actionEvent) {
-        System.out.println("openLibrary()");
+    public void openLibrary() {
+        mainController.setCenter(Library.getPath());
     }
 
     @FXML
-    public void openListBooks(ActionEvent actionEvent) {
-        System.out.println("openListBooks()");
+    public void openListBooks() {
+        mainController.setCenter(ListBooks.getPath());
     }
 
     @FXML
-    public void openStatistics(ActionEvent actionEvent) {
-        System.out.println("openStatistics()");
+    public void openStatistics() {
+        mainController.setCenter(Statistics.getPath());
     }
 
     @FXML
@@ -49,8 +50,7 @@ public class TopMenuButtonsController implements Initializable {
         if(toggleButtons.getSelectedToggle() != null) {
             toggleButtons.getSelectedToggle().setSelected(false);
         }
-
-        mainController.setCenter("/fxml/AddBook.fxml");
+        mainController.setCenter(AddBook.getPath());
     }
 
     public void setMainController(MainController mainController) {
