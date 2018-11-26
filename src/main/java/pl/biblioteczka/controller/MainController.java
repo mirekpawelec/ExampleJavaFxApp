@@ -7,9 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import pl.biblioteczka.dialogs.DialogsUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,8 +44,12 @@ public class MainController implements Initializable {
     }
 
     public void closeApplication() {
-        Platform.exit();
-        System.exit(0);
+        DialogsUtils.confirmationDialog().ifPresent(button -> {
+            if(button == ButtonType.OK) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
     }
 
     public void setCaspian() {
@@ -61,5 +67,6 @@ public class MainController implements Initializable {
     }
 
     public void about() {
+        DialogsUtils.dialogAboutApplication();
     }
 }
