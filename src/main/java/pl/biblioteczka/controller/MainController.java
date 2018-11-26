@@ -12,6 +12,8 @@ import javafx.scene.control.CheckMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import pl.biblioteczka.dialogs.DialogsUtils;
+import pl.biblioteczka.dialogs.FxmlUtils;
+import pl.biblioteczka.model.enums.FxmlPath;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,17 +32,8 @@ public class MainController implements Initializable {
         topMenuButtonsController.setMainController(this);
     }
 
-    public void setCenter(String fxmlPath) {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(fxmlPath));
-        ResourceBundle bundle = ResourceBundle.getBundle("bundles.messages");
-        loader.setResources(bundle);
-        Parent parent = null;
-        try {
-            parent = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        rootBorderPane.setCenter(parent);
+    public void setCenter(FxmlPath fxmlPath) {
+        rootBorderPane.setCenter(FxmlUtils.fxmlLoader(fxmlPath));
     }
 
     public void closeApplication() {

@@ -32,17 +32,17 @@ public class TopMenuButtonsController implements Initializable {
 
     @FXML
     public void openLibrary() {
-        mainController.setCenter(Library.getPath());
+        mainController.setCenter(Library);
     }
 
     @FXML
     public void openListBooks() {
-        mainController.setCenter(ListBooks.getPath());
+        mainController.setCenter(ListBooks);
     }
 
     @FXML
     public void openStatistics() {
-        mainController.setCenter(Statistics.getPath());
+        mainController.setCenter(Statistics);
     }
 
     @FXML
@@ -50,7 +50,7 @@ public class TopMenuButtonsController implements Initializable {
         if(toggleButtons.getSelectedToggle() != null) {
             toggleButtons.getSelectedToggle().setSelected(false);
         }
-        mainController.setCenter(AddBook.getPath());
+        mainController.setCenter(AddBook);
     }
 
     public void setMainController(MainController mainController) {
